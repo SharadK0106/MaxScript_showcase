@@ -1,54 +1,465 @@
 <!DOCTYPE html>
-<html lang="en-us">
-    <head>
-      
-        <title>MaxScript demo</title>
-        
-        <!-- The compiled CSS file -->
-        <link rel="stylesheet" href="/css/production.css" />
-    </head>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Maxscripts Showcase</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>My Maxscripts Showcase</h1>
+    </header>
+    <div class="script-title">
+      <nav>
+        <h3>HNI scripts</h3>
+        <ol>
+          <li><a href="#marxent-converter">Marxent Converter</a></li>
+          <li><a href="#hni-toolset">HNI Toolset</a></li>
+          <li><a href="#preview-render">Preview Render</a></li>
+          <li><a href="#uv-tool">UV Tool</a></li>
+          <li>
+            <a href="#batch-mid-high-poly-export">Batch Mid-High Poly Export</a>
+          </li>
+          <li>
+            <a href="#auto-multi-matte-elements">Auto Multi-Matte Elements</a>
+          </li>
+          <li><a href="#outline-renderer">Outline Renderer</a></li>
+          <li>
+            <a href="#batch-import-step-fbx-files"
+              >Batch Import STEP/FBX Files</a
+            >
+          </li>
+          <li><a href="#batch-fbx-export">Batch FBX Export</a></li>
+          <li><a href="#batch-mid-poly-export">Batch Mid-Poly Export</a></li>
+          <li><a href="#batch-file-separate">Batch File Separate</a></li>
+          <li>
+            <a href="#batch-merge-with-distance">Batch Merge with Distance</a>
+          </li>
+          <li>
+            <a href="#batch-selection-sets-save">Batch Selection Sets Save</a>
+          </li>
+          <li>
+            <a href="#batch-texel-density-save">Batch Texel Density Save</a>
+          </li>
+          <li><a href="#copy-paste-script">Copy Paste Script</a></li>
+          <li><a href="#thumbnail-renderer">Thumbnail Renderer</a></li>
+          <li>
+            <a href="#batch-psd-to-hon-photoshop-script"
+              >Batch PSD to HON Photoshop Script</a
+            >
+          </li>
+        </ol>
+      </nav>
 
-    <body >
-  <div class="category">
-        <h1>HNI Scripts</h1>
-        <ul>
-            <li>Marxent converter</li>
-            <li>HNI toolset</li>
-            <li>Preview render</li>
-            <li>UV tool</li>
-            <li>Batch Mid-High poly export</li>
-            <li>Auto multi-matte elements</li>
-            <li>Outline renderer</li>
-            <li>Batch import STEP/FBX files</li>
-            <li>Batch FBX export</li>
-            <li>Batch Mid-poly export</li>
-            <li>Batch file separate</li>
-            <li>Batch merge with distance</li>
-            <li>Batch selection sets save</li>
-            <li>Batch texel density save</li>
-            <li>Copy paste script</li>
-            <li>Thumbnail renderer</li>
-            <li>Batch PSD to HON photoshop script</li>
-        </ul>
+      <nav>
+        <h3>Medial Lab scripts</h3>
+        <ol>
+          <li><a href="#smart-renamer">Smart Re-namer</a></li>
+          <li><a href="#bitmap-renamer">Bitmap Re-namer</a></li>
+          <li>
+            <a href="#object-material-renamer">Object and Material Re-namer</a>
+          </li>
+          <li><a href="#studio-helper">Studio Helper</a></li>
+          <li><a href="#vikrell-keyframer">Vikrell Key-framer</a></li>
+          <li><a href="#vikrell-renamer">Vikrell Re-namer</a></li>
+          <li>
+            <a href="#material-setter-modelling"
+              >Material Setter for Modelling</a
+            >
+          </li>
+          <li><a href="#bridge-poly-script">Bridge Poly Script</a></li>
+          <li><a href="#align-pivot-bottom">Align Pivot to Bottom</a></li>
+          <li>
+            <a href="#viewport-auto-switch"
+              >Viewport Auto Switch to 2D and 3D</a
+            >
+          </li>
+          <li><a href="#smart-renamer-tempa">Smart Renamer for Tempa</a></li>
+          <li>
+            <a href="#vray-physical-cam-restore">Vray Physical Cam Restore</a>
+          </li>
+          <li><a href="#random-material-apply">Random Material Apply</a></li>
+          <li><a href="#animation-keys-remover">Animation Keys Remover</a></li>
+        </ol>
+      </nav>
     </div>
-    <div class="category">
-        <h1>Media Lab Scripts</h1>
-        <ul>
-            <li>Smart re-namer</li>
-            <li>Bitmap re-namer</li>
-            <li>Object and material re-namer</li>
-            <li>Studio helper</li>
-            <li>Vikrell key-framer</li>
-            <li>Vikrell re-namer</li>
-            <li>Material setter for modelling</li>
-            <li>Bridge poly script</li>
-            <li>Align pivot to bottom</li>
-            <li>Viewport auto switch to 2D and 3D</li>
-            <li>Smart renamer for tempa</li>
-            <li>Vray physical cam restore</li>
-            <li>Random material apply</li>
-            <li>Animation keys remover</li>
-        </ul>
-    </div>
-    </body>
+
+    <main>
+      <section id="marxent-converter">
+        <h2>01. Marxent Converter</h2>
+        <div class="script-content">
+          <img src="images/Marxent_converter.JPG" alt="Marxent Converter" />
+          <div class="description">
+            <h3>User Interface:</h3>
+            <ul>
+              <li>
+                Creates a dialog box with two buttons: "Get maxfile folder" and
+                "Batch Convert".
+              </li>
+              <li>
+                "Get maxfile folder" lets the user select a folder containing
+                .max files.
+              </li>
+              <li>"Batch Convert" initiates the batch conversion process.</li>
+            </ul>
+            <p>
+              The script automates the process of preparing 3D models in .max
+              files for Marxent by:
+            </p>
+            <ul>
+              <li>Converting them to editable poly.</li>
+              <li>Applying material IDs and multi/sub-object materials.</li>
+              <li>Adjusting UV mapping and texel density.</li>
+              <li>Exporting the final models to .fbx format.</li>
+              <li>
+                It significantly streamlines and standardizes the workflow for
+                batch processing multiple 3D files.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="hni-toolset">
+        <h2>02. HNI Toolset</h2>
+        <div class="script-content">
+          <img src="images/HNI_Toolset.JPG" alt="HNI Toolset" />
+          <div class="description">
+            <h3>Summary</h3>
+            <p>
+              This script offers a comprehensive toolset for model validation
+              and correction, focusing on geometry integrity, naming
+              conventions, unit settings, and scene organization within 3ds Max.
+              Each tool provides feedback through message boxes and logs to
+              ensure clarity on the status and results of the checks performed.
+              And make log in text file for easy checking.
+            </p>
+            <h3>Interface:</h3>
+            <p>
+              It creates a dialog with multiple buttons, each assigned to a
+              specific function.
+            </p>
+            <h3>Detailed Functionality</h3>
+            <ul>
+              <li>
+                <strong>N-gon Check</strong>: Checks for faces with more than 4
+                edges (N-gons) in the scene.
+              </li>
+              <li>
+                <strong>Dummy Check</strong>: Verifies the presence and position
+                of dummy objects.
+              </li>
+              <li>
+                <strong>Layer Check</strong>: Ensures that object names match
+                their layer names.
+              </li>
+              <li>
+                <strong>Pivot Check</strong>: Checks if object pivots are
+                centered at the grid.
+              </li>
+              <li>
+                <strong>Unit Check</strong>: Displays the current system units.
+              </li>
+              <li>
+                <strong>Polycount</strong>: Computes and displays the total
+                polycount of the scene.
+              </li>
+              <li>
+                <strong>STP Check</strong>: Checks for the presence of an "STP"
+                layer.
+              </li>
+              <li>
+                <strong>Backface Culling On</strong>: Enables backface culling
+                for all objects and layers.
+              </li>
+              <li>
+                <strong>Task Height Check</strong>: Creates reference boxes for
+                task seat and arm heights to verify their correctness.
+              </li>
+              <li>
+                <strong>Stool Height Check</strong>: Creates reference boxes for
+                stool seat and arm heights to verify their correctness.
+              </li>
+              <li>
+                <strong>Non-Smooth Faces Check</strong>: Checks for faces
+                without smoothing groups.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="preview-render">
+        <h2>03. Preview Render</h2>
+        <div class="script-content">
+          <img src="images/preview-render.png" alt="Preview Render" />
+          <div class="description">
+            <h3>Purpose:</h3>
+            <p>
+              This script is used in 3ds Max (a 3D modeling software) to
+              automate the process of rendering images from 3D models. It helps
+              save time and ensures consistency in lighting and camera angles.
+            </p>
+            <h3>Features:</h3>
+            <ul>
+              <li>
+                <strong>Single Render:</strong> Renders an image of the current
+                3D model as seen from the active viewpoint.
+              </li>
+              <li>
+                <strong>Batch Render:</strong> Allows you to select a folder
+                containing multiple 3D model files and renders each model in the
+                folder, saving the images to a specified location.
+              </li>
+              <li>
+                <strong>360 Renders:</strong> Renders the current 3D model from
+                multiple angles, creating a series of images that show the model
+                from all sides. Useful for creating a complete view of the
+                model.
+              </li>
+            </ul>
+            <h3>Benefits:</h3>
+            <ul>
+              <li>
+                <strong>Time-Saving:</strong> Automates repetitive tasks,
+                freeing up time for more creative work.
+              </li>
+              <li>
+                <strong>Consistency:</strong> Ensures all your renders have the
+                same lighting and camera setup, making your images look
+                professional and uniform.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="uv-tool">
+        <h2>04. UV Tool</h2>
+        <div class="script-content">
+          <img src="images/UV_tool.JPG" alt="UV Tool" />
+          <div class="description">
+            <h3>Main Features:</h3>
+            <ul>
+              <li>
+                <strong>Get Scale:</strong> Calculates the current texel density
+                (how much texture detail there is per unit of the model).
+              </li>
+              <li>
+                <strong>Set Scale:</strong> Allows you to set a desired texel
+                density for selected models, ensuring consistent texture
+                quality.
+              </li>
+              <li>
+                <strong>Set 2048:</strong> Quickly sets the texel density to a
+                value suitable for 2048x2048 textures.
+              </li>
+              <li>
+                <strong>Align Elements:</strong> Aligns selected UV elements to
+                ensure they are properly positioned.
+              </li>
+              <li>
+                <strong>Flat UV:</strong> Flattens the UV map, making it easier
+                to work with and apply textures evenly.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="batch-mid-high-poly-export">
+        <h2>05. Batch Mid-High Poly Export</h2>
+        <div class="script-content">
+          <img
+            src="images/Batch file separate_MP-HP_V1.JPG"
+            alt="Batch Mid-High Poly Export"
+          />
+          <div class="description">
+            <h3>What the Script Does in Detail:</h3>
+            <ul>
+              <li>
+                <strong>Prepare Models:</strong>
+                <ul>
+                  <li>Unhides all objects and layers in the scene.</li>
+                  <li>Adjusts object names based on their layer names.</li>
+                  <li>
+                    Compares "dummy" objects to determine their linked mesh
+                    counts and names them accordingly (High Poly or Mid Poly).
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Export Models:</strong>
+                <ul>
+                  <li>Sets parameters for FBX export.</li>
+                  <li>
+                    Processes each 3ds Max file:
+                    <ul>
+                      <li>
+                        Separates the model into High Poly and Mid Poly
+                        versions.
+                      </li>
+                      <li>
+                        Adjusts the position and pivot points of the models.
+                      </li>
+                      <li>Attaches objects in the same layer.</li>
+                      <li>
+                        Saves and exports the High Poly and Mid Poly versions as
+                        .max and .fbx files.
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Cleanup:</strong>
+                <ul>
+                  <li>
+                    Removes empty layers and unused objects from the scene.
+                  </li>
+                  <li>
+                    Displays a message once the conversion process is complete.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="auto-multi-matte-elements">
+        <h2>06. Auto Multi-Matte Elements</h2>
+        <div class="script-content">
+          <img
+            src="images/Multimatte_elements_v1.JPG"
+            alt="Auto Multi-Matte Elements"
+          />
+          <div class="description">
+            <h3>Main Features:</h3>
+            <ul>
+              <li>
+                <strong>Auto Multimatte Elements:</strong>
+                <ul>
+                  <li>
+                    Automatically creates Multimatte render elements based on
+                    the materials used in your scene.
+                  </li>
+                  <li>
+                    Assigns a unique ID to each material to ensure that each
+                    object can be easily isolated in post-production.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Random Wirecolor:</strong>
+                <ul>
+                  <li>
+                    Assigns random wireframe colors to objects in your scene
+                    based on their materials.
+                  </li>
+                  <li>
+                    Helps in visually distinguishing different objects and
+                    materials within the 3ds Max viewport.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="outline-renderer">
+        <h2>07. Outline Renderer</h2>
+        <div class="script-content">
+          <img src="images/outline-render_01.png" alt="Outline Renderer 01" />
+          <img src="images/outline-render_02.png" alt="Outline Renderer 02" />
+          <div class="description">
+            <h3>Model Preparation Helper:</h3>
+            <p>
+              This part of the script is for preparing models for rendering.
+            </p>
+            <ul>
+              <li>Import or merge the model.</li>
+              <li>
+                For models other than chairs, click on "Add Dummy to Tables" to
+                align your model to the origin.
+              </li>
+              <li>
+                For chair models:
+                <ul>
+                  <li>Set the caster rotation pivot properly.</li>
+                  <li>
+                    If there are multiple objects in one caster, link all other
+                    objects in the caster to the rotation object in the caster.
+                  </li>
+                  <li>
+                    Select all caster heads, then click "Add Dummy to Caster".
+                  </li>
+                  <li>
+                    Select the cylinder in the chair and click "Add Dummy to
+                    Cylinder". If there are no casters, you can skip "Add Dummy
+                    to Caster" and directly click "Add Dummy to Cylinder".
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Rename your model parts to match their material names. Enter the
+                name in the text field and click the "Rename It" button.
+              </li>
+              <li>
+                Select the type of product in the camera add section. If the
+                model type is not listed, select the custom option.
+              </li>
+              <li>
+                Randomize the wirecolor of objects (material-wise) using the
+                "Random Wirecolor" button.
+              </li>
+              <li>
+                To add UVW map to laminates, select laminates and click "Add
+                Laminates UVW" button.
+              </li>
+              <li>
+                Once the material names are assigned to scene objects, click
+                "Assign Material" to auto-add materials to scene objects.
+              </li>
+            </ul>
+
+            <h3>Outline Render Helper:</h3>
+            <p>Use models prepared with the model preparation helper.</p>
+            <ul>
+              <li>
+                Select the angle needed to render using the check button, then
+                click "Create Keys".
+              </li>
+              <li>
+                Click "Assign Render Setup" to add the render setting and
+                background to the scene.
+              </li>
+              <li>To render preview images, click "R1 Clay".</li>
+              <li>
+                To render final images in 6k resolution, check the "6K" button
+                and click "R2 Final".
+              </li>
+              <li>
+                To render a single product, select "Local" or "Network" as your
+                render destination, then select the image save folder and click
+                "Render".
+              </li>
+              <li>
+                To batch merge multiple files prepared using the model
+                preparation helper, select the folder containing those files and
+                click "Batch Merge Max Files". Then submit to render as above.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Sharad Kumbhar</p>
+    </footer>
+  </body>
 </html>
