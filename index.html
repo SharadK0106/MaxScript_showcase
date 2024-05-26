@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Maxscripts Showcase</title>
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>My Maxscripts Showcase</h1>
+    </header>
+    <button onclick="scrollToTop()" class="scroll-to-top" id="scrollBtn">
+      Scroll to Top
+    </button>
+    <div class="script-title">
+      <div class="center-menu">
+        <nav>
+          <h3>HNI scripts</h3>
+          <ol>
+            <li><a href="#marxent-converter">Marxent Converter</a></li>
+            <li><a href="#hni-toolset">HNI Toolset</a></li>
+            <li><a href="#preview-render">Preview Render</a></li>
+            <li><a href="#uv-tool">UV Tool</a></li>
+            <li>
+              <a href="#outline-renderer">Outline Renderer</a>
+            </li>
+            <li>
+              <a href="#auto-multi-matte-elements">Auto Multi-Matte Elements</a>
+            </li>
+            <li>
+              <a href="#batch-mid-high-poly-export"
+                >Batch Mid-High Poly Export</a
+              >
+            </li>
+            <li>
+              <a href="#batch-import-step-fbx-files"
+                >Batch Import STEP/FBX/DWG Files</a
+              >
+            </li>
+            <li><a href="#batch-fbx-export">Batch Max to FBX convert</a></li>
+            <li><a href="#batch-mid-poly-export">Batch Mid-Poly Export</a></li>
+            <li><a href="#batch-file-separate">Batch File Separate</a></li>
+            <li>
+              <a href="#batch-merge-with-distance">Batch Merge with Distance</a>
+            </li>
+            <li>
+              <a href="#batch-selection-sets-save">Batch Selection Sets Save</a>
+            </li>
+            <li>
+              <a href="#batch-texel-density-save">Batch Texel Density Save</a>
+            </li>
+            <li><a href="#thumbnail-renderer">Thumbnail Renderer</a></li>
+            <li><a href="#copy-paste-script">Copy Paste Script</a></li>
+            <li>
+              <a href="#batch-psd-to-hon"
+                >Batch PSD to HON (Photoshop Script)</a
+              >
+            </li>
+          </ol>
+        </nav>
+
+        <nav>
+          <h3>Medial Lab scripts</h3>
+          <ol>
+            <li><a href="#smart-renamer">Smart Re-namer</a></li>
+            <li><a href="#bitmap-renamer">Bitmap Re-namer</a></li>
+            <li>
+              <a href="#object-material-renamer"
+                >Object and Material Re-namer</a
+              >
+            </li>
+            <li><a href="#studio-helper">Studio Helper</a></li>
+            <li><a href="#vikrell-keyframer">Vikrell Key-framer</a></li>
+            <li><a href="#vikrell-renamer">Vikrell Re-namer</a></li>
+            <li><a href="#smart-renamer-tempa">Smart Renamer for Tempa</a></li>
+            <li>
+              <a href="#viewport-material-change">Viewport Material Change</a>
+            </li>
+            <li><a href="#bridge-poly-script">Bridge Poly Script</a></li>
+            <li><a href="#align-pivot-to-bottom">Align Pivot to Bottom</a></li>
+            <li>
+              <a href="#viewport-auto-switch"
+                >Viewport Auto Switch to 2D and 3D</a
+              >
+            </li>
+            <li>
+              <a href="#vray-physical-cam-restore">Vray Physical Cam Restore</a>
+            </li>
+            <li><a href="#random-material-apply">Random Material Apply</a></li>
+            <li>
+              <a href="#animation-keys-remover">Animation Keys Remover</a>
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <main>
+      <h1>HNI scripts</h1>
+      <section id="marxent-converter">
+        <h2>01. Marxent Converter</h2>
+        <div class="script-content">
+          <img src="images/Marxent_converter.JPG" alt="Marxent Converter" />
+          <div class="description">
+            <p>Select Folder and Batch Convert</p>
+            <ul>
+              <li>
+                Creates a dialog box with two buttons: "Get maxfile folder" and
+                "Batch Convert".
+              </li>
+              <li>
+                "Get maxfile folder" lets the user select a folder containing
+                .max files.
+              </li>
+              <li>"Batch Convert" initiates the batch conversion process.</li>
+            </ul>
+            <p>Batch conversion process:</p>
+            <ul>
+              <li>Loads the max file.</li>
+              <li>
+                Cleans up the scene by un-hiding objects, removing helpers, and
+                converting objects to editable poly format.
+              </li>
+              <li>Adjusts object pivots and attaches objects together.</li>
+              <li>Sets up material IDs and assigns materials.</li>
+              <li>
+                Adjusts UVW mapping for texture coordinates. First UV channel it
+                set for taking maximum 0-1 space. And for 2nd UV channel it sets
+                the texel density 2048 as per marxent standard.
+              </li>
+              <li>Exports the model to the FBX format, in separate folder.</li>
+              <li>Saves the modified scene file, in separate folder.</li>
+            </ul>
+            <p>User feedback</p>
+            <ul>
+              <li>
+                After processing all files, the script displays a message
+                confirming completion of the conversion process.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="hni-toolset">
+        <h2>02. HNI Toolset</h2>
+        <div class="script-content">
+          <img src="images/HNI_Toolset.JPG" alt="HNI Toolset" />
+          <div class="description">
+            <h3>Summary</h3>
+            <p>
+              This script offers a comprehensive toolset for model validation
+              and correction, focusing on geometry integrity, naming
+              conventions, unit settings, and scene organization within 3ds Max.
+              Each tool provides feedback through message boxes and logs to
+              ensure clarity on the status and results of the checks performed.
+              And make log in text file for easy checking.
+            </p>
+            <h3>Detailed Functionality</h3>
+            <ul>
+              <li>
+                <strong>N-gon Check</strong>: Checks for faces with more than 4
+                edges (N-gons) in the scene.
+              </li>
+              <li>
+                <strong>Dummy Check</strong>: Verifies the presence and position
+                of dummy objects.
+              </li>
+              <li>
+                <strong>Layer Check</strong>: Ensures that object names match
+                their layer names.
+              </li>
+              <li>
+                <strong>Pivot Check</strong>: Checks if object pivots are
+                centered at the grid.
+              </li>
+              <li>
+                <strong>Unit Check</strong>: Displays the current system units.
+              </li>
+              <li>
+                <strong>Polycount</strong>: Computes and displays the total
+                polycount of the scene.
+              </li>
+              <li>
+                <strong>STP Check</strong>: Checks for the presence of an "STP"
+                layer.
+              </li>
+              <li>
+                <strong>Backface Culling On</strong>: Enables backface culling
+                for all objects and layers.
+              </li>
+              <li>
+                <strong>Task Height Check</strong>: Creates reference boxes for
+                task seat and arm heights to verify their correctness.
+              </li>
+              <li>
+                <strong>Stool Height Check</strong>: Creates reference boxes for
+                stool seat and arm heights to verify their correctness.
+              </li>
+              <li>
+                <strong>Non-Smooth Faces Check</strong>: Checks for faces
+                without smoothing groups.
+              </li>
+              <li>
+                <strong>Flip normal Check</strong>: Lets you easily check for
+                flip normals by turing on Flip normals in xview.
+              </li>
+              <li>
+                <strong>Check isolated vertices</strong>: Check and remove any
+                isolated vertices.
+              </li>
+              <li>
+                <strong>Render UV</strong>: Renders the Current UV in 0-1 space
+                and save render in same max file folder.
+              </li>
+              <li>
+                <strong>Gap check toggle</strong>: Lets you easily check for
+                gaps by turing on viewport background to green. Click again for
+                turning off green background.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="preview-render">
+        <h2>03. Preview Render</h2>
+        <div class="script-content">
+          <img src="images/preview-render.png" alt="Preview Render" />
+          <div class="description">
+            <h3>Purpose:</h3>
+            <p>
+              This script is used to automate the process of rendering images
+              from 3D models. To helps save time and ensures consistency by auto
+              setting lighting and cemaera. Then followed by batch rendering and
+              saving images.
+            </p>
+            <h3>Features:</h3>
+            <ul>
+              <li>
+                <strong>Single Render:</strong> Renders an image of the current
+                3D model as seen from the active viewpoint.
+              </li>
+              <li>
+                <strong>Select image save folder:</strong> Allows you to select
+                a folder for saving rendered images.
+              </li>
+              <li>
+                <strong>360 Renders:</strong> Renders the current 3D model from
+                12 angles, creating a series of images that show the model from
+                all sides. And saves images in selected folder.
+              </li>
+              <li>
+                <strong>Get files:</strong> Allows you to select a folder
+                containing max files for batch rendering.
+              </li>
+              <li>
+                <strong>Batch render:</strong> This will render all max files in
+                selected filder and saves its images in selected folder.
+              </li>
+            </ul>
+            <h3>Benefits:</h3>
+            <ul>
+              <li>
+                <strong>Time-Saving:</strong> Automates repetitive tasks,
+                freeing up time for more creative work.
+              </li>
+              <li>
+                <strong>Consistency:</strong> Ensures all your renders have the
+                same lighting and camera setup, making your images look
+                professional and uniform.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="uv-tool">
+        <h2>04. UV Tool</h2>
+        <div class="script-content">
+          <img src="images/UV_tool.JPG" alt="UV Tool" />
+          <div class="description">
+            <h3>Main Features:</h3>
+            <ul>
+              <li>
+                <strong>Get Scale:</strong> Calculates the current texel density
+                (how much texture detail there is per unit of the model).
+              </li>
+              <li>
+                <strong>Set Scale:</strong> Allows you to set a desired texel
+                density for selected models, ensuring consistent texture
+                quality.
+              </li>
+              <li>
+                <strong>Set 2048:</strong> Quickly sets the texel density to a
+                value suitable for 2048x2048 textures.
+              </li>
+              <li>
+                <strong>Align Elements:</strong> Aligns selected UV elements to
+                ensure they are properly positioned.
+              </li>
+              <li>
+                <strong>Flat UV:</strong> Flattens the UV map in w direction.
+                Making it easier for correct texel density calculations.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="outline-renderer">
+        <h2>05. Outline Renderer</h2>
+        <div class="script-content">
+          <img src="images/outline-render_01.png" alt="Outline Renderer 01" />
+          <img src="images/outline-render_02.png" alt="Outline Renderer 02" />
+          <div class="description">
+            <h3>Model Preparation Helper:</h3>
+            <p>
+              This part of the script is for preparing models for rendering.
+            </p>
+            <ul>
+              <li>Import or merge the model.</li>
+              <li>
+                For models other than chairs, click on "Add Dummy to Tables" to
+                align your model to the origin.
+              </li>
+              <li>
+                For chair models:
+                <ul>
+                  <li>Set the caster rotation pivot properly.</li>
+                  <li>
+                    If there are multiple objects in one caster, link all other
+                    objects in the caster to the rotation object in the caster.
+                  </li>
+                  <li>
+                    Select all caster heads, then click "Add Dummy to Caster".
+                  </li>
+                  <li>
+                    Select the cylinder in the chair and click "Add Dummy to
+                    Cylinder". If there are no casters, you can skip "Add Dummy
+                    to Caster" and directly click "Add Dummy to Cylinder".
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Rename your model parts to match their material names. Enter the
+                name in the text field and click the "Rename It" button.
+              </li>
+              <li>
+                Select the type of product in the camera add section. If the
+                model type is not listed, select the custom option.
+              </li>
+              <li>
+                Randomize the wirecolor of objects (material-wise) using the
+                "Random Wirecolor" button.
+              </li>
+              <li>
+                To add UVW map to laminates, select laminates and click "Add
+                Laminates UVW" button.
+              </li>
+              <li>
+                Once the material names are assigned to scene objects, click
+                "Assign Material" to auto-add materials to scene objects.
+              </li>
+            </ul>
+
+            <h3>Outline Render Helper:</h3>
+            <p>Use models prepared with the model preparation helper.</p>
+            <ul>
+              <li>
+                Select the angle needed to render using the check button, then
+                click "Create Keys".
+              </li>
+              <li>
+                Click "Assign Render Setup" to add the render setting and
+                background to the scene.
+              </li>
+              <li>To render preview images, click "R1 Clay".</li>
+              <li>
+                To render final images in 6k resolution, check the "6K" button
+                and click "R2 Final".
+              </li>
+              <li>
+                To render a single product, select "Local" or "Network" as your
+                render destination, then select the image save folder and click
+                "Render".
+              </li>
+              <li>
+                To batch merge multiple files prepared using the model
+                preparation helper, select the folder containing those files and
+                click "Batch Merge Max Files". Then submit to render as above.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="auto-multi-matte-elements">
+        <h2>06. Auto Multi-Matte Elements</h2>
+        <div class="script-content">
+          <img
+            src="images/Multimatte_elements_v1.JPG"
+            alt="Auto Multi-Matte Elements"
+          />
+          <div class="description">
+            <h3>Main Features:</h3>
+            <ul>
+              <li>
+                <strong>Auto Multimatte Elements:</strong>
+                <ul>
+                  <li>
+                    Automatically creates Multimatte render elements based on
+                    the materials used in your scene.
+                  </li>
+                  <li>
+                    Assigns a unique ID to each material to ensure that each
+                    object can be easily isolated in post-production.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Random Wirecolor:</strong>
+                <ul>
+                  <li>
+                    Assigns random wireframe colors by materials to objects in
+                    your scene.
+                  </li>
+                  <li>
+                    Helps in visually distinguishing different objects by
+                    materials. Also helps to get material ID pass.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="batch-mid-high-poly-export">
+        <h2>07. Batch Mid-High Poly Export</h2>
+        <div class="script-content">
+          <img
+            src="images/Batch file separate_MP-HP_V1.JPG"
+            alt="Batch Mid-High Poly Export"
+          />
+          <div class="description">
+            <h3>What the Script Does in Detail:</h3>
+            <ul>
+              <li>
+                <strong>Prepare Models:</strong>
+                <ul>
+                  <li>Unhides all objects and layers in the scene.</li>
+                  <li>Adjusts object names based on their layer names.</li>
+                  <li>
+                    Compares "dummy" objects to determine their linked mesh
+                    counts and names them accordingly (High Poly or Mid Poly).
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Export Models:</strong>
+                <ul>
+                  <li>Sets parameters for FBX export.</li>
+                  <li>
+                    Processes each 3ds Max file:
+                    <ul>
+                      <li>
+                        Separates the model into High Poly and Mid Poly
+                        versions.
+                      </li>
+                      <li>
+                        Adjusts the position and pivot points of the models.
+                      </li>
+                      <li>Attaches objects in the same layer.</li>
+                      <li>
+                        Saves and exports the High Poly and Mid Poly versions as
+                        .max and .fbx files to separate folder.
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Cleanup:</strong>
+                <ul>
+                  <li>
+                    Removes empty layers and unused objects from the scene.
+                  </li>
+                  <li>
+                    Displays a message once the conversion process is complete.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="batch-import-step-fbx-files">
+        <h2>08. Batch Import STP/FBX/DWG Script</h2>
+        <div class="script-content">
+          <img
+            src="images/batch_import_fbx.JPG"
+            alt="Batch Import STP Script"
+          />
+          <div class="description">
+            <h3>Features:</h3>
+            <ul>
+              <li>
+                <strong>Select Folder:</strong>
+                <ul>
+                  <li>
+                    Allows you to choose a folder containing FBX/STP/DWG files
+                    that you want to import.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Batch Merge:</strong>
+                <ul>
+                  <li>Imports all FBX files from the selected folder.</li>
+                  <li>Unhides all objects and layers in the scene.</li>
+                  <li>Adjusts object names based on their layer names.</li>
+                  <li>
+                    Gives you option to groups and offsets the imported objects
+                    to avoid overlap.
+                  </li>
+                  <li>
+                    Sets pivots to the center and zeroes out the position for
+                    alignment.
+                  </li>
+                  <li>
+                    Removes empty layers and organizes each imported file into a
+                    new layer with the file's name.
+                  </li>
+                  <li>
+                    Displays a message once the merging process is complete.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Batch Save Sets:</strong>
+                <ul>
+                  <li>Saves each selection set into a separate file.</li>
+                  <li>
+                    Files are saved in the same location as the original Max
+                    file within a new folder named after the Max file.
+                  </li>
+                  <li>Displays a message once the save process is complete.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="batch-fbx-export">
+        <h2>09. Batch Convert Max Files to FBX</h2>
+        <div class="script-content">
+          <img
+            src="images/Batch FBX export.JPG"
+            alt="Batch Convert Max Files to FBX Script"
+          />
+          <div class="description">
+            <h3>What the Script Does in Detail:</h3>
+            <ul>
+              <li>
+                <strong>Folder Selection:</strong>
+                <ul>
+                  <li>
+                    Opens a dialog for you to select the folder containing your
+                    .max files.
+                  </li>
+                  <li>
+                    Stores the path of the selected folder and retrieves a list
+                    of all .max files within it.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Batch Conversion Process:</strong>
+                <ul>
+                  <li>Opens each .max file one by one.</li>
+                  <li>
+                    Cleans up the scene by removing helpers and resetting
+                    transformations.
+                  </li>
+                  <li>
+                    Converts all objects to editable poly for compatibility.
+                  </li>
+                  <li>
+                    Sets FBX export parameters such as enabling smoothing groups
+                    and setting the up-axis to Z.
+                  </li>
+                  <li>Exports the prepared file as an FBX.</li>
+                  <li>
+                    Deletes the objects from the scene to prepare for the next
+                    file.
+                  </li>
+                  <li>
+                    Resets the 3ds Max scene after all files are processed.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="batch-mid-poly-export">
+        <h2>10. Batch Mid Poly Export</h2>
+        <div class="script-content">
+          <img
+            src="images/batch_mp_export.JPG"
+            alt="Batch Mid Poly Export Script"
+          />
+          <div class="description">
+            <h3>What the Script Does in Detail:</h3>
+            <ul>
+              <li>
+                <strong>Folder Selection:</strong>
+                <ul>
+                  <li>
+                    Opens a dialog for you to select the folder containing your
+                    .max files.
+                  </li>
+                  <li>
+                    Stores the path of the selected folder and retrieves a list
+                    of all .max files within it.
+                  </li>
+                  <li>
+                    Creates a subfolder named "Mid" within the selected folder
+                    to store the converted files.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Batch Conversion Process:</strong>
+                <ul>
+                  <li>Opens each .max file one by one.</li>
+                  <li>Removes layers and objects named "STP" and "DWG".</li>
+                  <li>
+                    Prepares the objects for export by converting them to
+                    editable poly, resetting transformations, and assigning
+                    default properties.
+                  </li>
+                  <li>
+                    Sets the layer names as object names for better
+                    organization.
+                  </li>
+                  <li>
+                    Attaches objects within the same layer to minimize the
+                    number of nodes.
+                  </li>
+                  <li>
+                    Saves the prepared file as a new .max file in the "Mid"
+                    subfolder.
+                  </li>
+                  <li>
+                    Configures FBX export settings, such as enabling smoothing
+                    groups and setting the up-axis to Z.
+                  </li>
+                  <li>
+                    Exports the prepared file as an FBX with a standardized
+                    naming convention in the "Mid" subfolder.
+                  </li>
+                  <li>
+                    Deletes all objects from the scene to prepare for the next
+                    file.
+                  </li>
+                  <li>
+                    Resets the 3ds Max scene after all files are processed.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="batch-file-separate">
+        <h2>11. Batch File Separate</h2>
+        <div class="script-content">
+          <img
+            src="images/Batch file separate.JPG"
+            alt="Batch File Separate Script"
+          />
+          <div class="description">
+            <h3>What the Script Does in Detail:</h3>
+            <ul>
+              <li>
+                <strong>Folder Selection:</strong>
+                <ul>
+                  <li>
+                    Opens a dialog for you to select the folder containing your
+                    .max files.
+                  </li>
+                  <li>
+                    Stores the path of the selected folder and retrieves a list
+                    of all .max files within it.
+                  </li>
+                  <li>
+                    Creates subfolders named "Low", "Mid", and "High" within the
+                    selected folder to store the separated files.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Batch Separation Process:</strong>
+                <ul>
+                  <li>Opens each .max file one by one.</li>
+                  <li>Removes layers and objects named "STP".</li>
+                  <li>
+                    Selects and prepares objects for separation by converting
+                    them to editable poly, resetting transformations, and
+                    setting default properties.
+                  </li>
+                  <li>
+                    Assigns the layer names to the object names for better
+                    organization.
+                  </li>
+                  <li>
+                    Attaches objects within the same layer to minimize the
+                    number of nodes.
+                  </li>
+                  <li>
+                    Compares the number of polygons in the children of three
+                    dummy objects to determine which dummy represents high-poly,
+                    mid-poly, and low-poly versions.
+                  </li>
+                  <li>
+                    Sets the names of the dummy objects accordingly (HP, MP,
+                    LP).
+                  </li>
+                  <li>Separates and prepares each version for export:</li>
+                  <ul>
+                    <li>
+                      <strong>High-poly version:</strong>
+                      <ul>
+                        <li>
+                          Moves to origin, isolates, and attaches objects, sets
+                          pivots, and exports to FBX and .max files in the
+                          "High" subfolder.
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <strong>Mid-poly version:</strong>
+                      <ul>
+                        <li>
+                          Moves to origin, isolates, and attaches objects, sets
+                          pivots, and exports to FBX and .max files in the "Mid"
+                          subfolder.
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <strong>Low-poly version:</strong>
+                      <ul>
+                        <li>
+                          Moves to origin, isolates, and attaches objects, sets
+                          pivots, and exports to FBX and .max files in the "Low"
+                          subfolder.
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <li>
+                    Deletes all objects from the scene to prepare for the next
+                    file.
+                  </li>
+                  <li>
+                    Resets the 3ds Max scene after all files are processed.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="batch-merge-with-distance">
+        <h2>12. Batch Merge with Distance</h2>
+        <div class="script-content">
+          <img
+            src="images/batch_merge_with distance.JPG"
+            alt="Batch Merge with Distance Script"
+          />
+          <div class="description">
+            <h3>What the Script Does in Detail:</h3>
+            <ul>
+              <li>
+                <strong>Folder Selection:</strong>
+                <ul>
+                  <li>
+                    Opens a dialog for you to select the folder containing your
+                    .max files.
+                  </li>
+                  <li>
+                    Stores the path of the selected folder and retrieves a list
+                    of all .max files within it.
+                  </li>
+                  <li>
+                    Updates the button caption with the folder name for easy
+                    reference.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Batch Merge Process:</strong>
+                <ul>
+                  <li>
+                    Opens each .max file one by one and merges its contents into
+                    the current scene.
+                  </li>
+                  <li>
+                    Gives option to group and add offset distance to the merged
+                    max files.
+                  </li>
+                  <li>
+                    Automatically removes empty layers to keep the scene
+                    organized.
+                  </li>
+                  <li>Handles any duplicate object names by renaming them.</li>
+                  <li>
+                    Creates a selection set for each merged file to keep track
+                    of the imported objects.
+                  </li>
+                  <li>
+                    Renames each object based on its layer name and resets its
+                    pivot point to [0,0,0].
+                  </li>
+                  <li>Displays a message box once all files are merged.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Batch Save Process:</strong>
+                <ul>
+                  <li>
+                    Creates a new subfolder within the selected folder, named
+                    after the current .max file.
+                  </li>
+                  <li>
+                    Saves each selection set as a separate .max file within this
+                    subfolder.
+                  </li>
+                  <li>
+                    Displays a message box once all selection sets are saved.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="batch-selection-sets-save">
+        <h2>13. Batch Selection Sets Save</h2>
+        <div class="script-content">
+          <img
+            src="images/batch_sets_save.JPG"
+            alt="Batch Selection Sets Save Script"
+          />
+          <div class="description">
+            <h3>What the Script Does in Detail:</h3>
+            <ul>
+              <li>
+                <strong>Folder Selection:</strong>
+                <ul>
+                  <li>
+                    Opens a dialog for you to select the folder containing your
+                    .max files.
+                  </li>
+                  <li>
+                    Stores the path of the selected folder and retrieves a list
+                    of all .max files within it.
+                  </li>
+                  <li>
+                    Updates the button caption with the folder name for easy
+                    reference.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Batch Save Sets Process:</strong>
+                <ul>
+                  <li>
+                    Creates a new subfolder named "Sets_separated" within the
+                    selected folder.
+                  </li>
+                  <li>
+                    Opens each .max file one by one and checks for selection
+                    sets.
+                  </li>
+                  <li>If there are selection sets:</li>
+                  <ul>
+                    <li>Selects each set.</li>
+                    <li>
+                      Saves the objects in the set as a new .max file in the new
+                      subfolder.
+                    </li>
+                  </ul>
+                  <li>If there are no selection sets:</li>
+                  <ul>
+                    <li>Saves the entire .max file in the new subfolder.</li>
+                  </ul>
+                  <li>
+                    Resets the scene after processing each file to ensure a
+                    clean state for the next file.
+                  </li>
+                  <li>
+                    Displays a message box once all files are processed and
+                    saved.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="batch-texel-density-save">
+        <h2>14. Batch Texel Density Save</h2>
+        <div class="script-content">
+          <img
+            src="images/batch_texel_density_set.JPG"
+            alt="Batch Texel Density Save Script"
+          />
+          <div class="description">
+            <h3>Detailed Script Functionality:</h3>
+            <ul>
+              <li>
+                <strong>Folder Selection:</strong>
+                <ul>
+                  <li>
+                    Opens a dialog for you to select the folder containing your
+                    .max files.
+                  </li>
+                  <li>
+                    Stores the path of the selected folder and retrieves a list
+                    of all .max files within it.
+                  </li>
+                  <li>
+                    Updates the button caption with the folder name for easy
+                    reference.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Setting Texel Density:</strong>
+                <ul>
+                  <li>Calculates the texel density for selected objects.</li>
+                  <li>
+                    Adjusts the UV mapping to achieve the specified texel
+                    density.
+                  </li>
+                  <li>
+                    Ensures all objects in the selection have uniform texel
+                    density.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Batch Process:</strong>
+                <ul>
+                  <li>
+                    Creates a new subfolder named "Texel_set" within the
+                    selected folder.
+                  </li>
+                  <li>
+                    Opens each .max file, unhides objects, removes unnecessary
+                    layers and helpers, and applies the specified texel density.
+                  </li>
+                  <li>
+                    Exports the processed file as .fbx and saves the modified
+                    .max file in the new subfolder.
+                  </li>
+                  <li>
+                    Resets the scene after processing each file to ensure a
+                    clean state for the next file.
+                  </li>
+                  <li>
+                    Displays a message box once all files are processed and
+                    saved.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="thumbnail-renderer">
+        <h2>15. Thumbnail Renderer</h2>
+        <div class="script-content">
+          <img
+            src="images/Thumbnail_render.JPG"
+            alt="Thumbnail Renderer Script"
+          />
+          <div class="description">
+            <h3>Detailed Script Functionality:</h3>
+            <ul>
+              <li>
+                <strong>Single Render:</strong>
+                <ul>
+                  <li>Sets up the render settings and materials.</li>
+                  <li>Creates a light and background environment.</li>
+                  <li>Positions the camera to capture the model.</li>
+                  <li>Renders the current model and saves the image.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Batch Render:</strong>
+                <ul>
+                  <li>
+                    Iterates through all 3ds Max files in the selected folder.
+                  </li>
+                  <li>
+                    Opens each file, sets up the render settings and materials.
+                  </li>
+                  <li>Creates a light and background environment.</li>
+                  <li>Positions the camera to capture the model.</li>
+                  <li>Renders the model and saves the image.</li>
+                  <li>
+                    Restores the original scene settings after rendering each
+                    file.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Camera View Adjustment:</strong>
+                <ul>
+                  <li>
+                    Allows users to input a value to adjust the camera's
+                    distance from the model, ensuring it fits well within the
+                    frame.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="copy-paste-script">
+        <h2>16. Copy Paste Script</h2>
+        <div class="script-content">
+          <!-- <img src="images/Copy_paste_script.JPG" alt="Copy Paste Script" /> -->
+          <div class="description">
+            <h3>Detailed Script Functionality:</h3>
+            <ul>
+              <li>
+                <strong>Copy Objects (copyday):</strong>
+                <ul>
+                  <li>
+                    Saves your currently selected objects to a temporary file.
+                  </li>
+                  <li>
+                    This file is always updated with your latest copied objects,
+                    ensuring you have the most recent selection ready to paste.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Paste Objects (pasteday):</strong>
+                <ul>
+                  <li>
+                    Brings the saved objects from the temporary file back into
+                    your current 3D scene.
+                  </li>
+                  <li>
+                    Automatically selects the pasted objects so you can easily
+                    find and work with them.
+                  </li>
+                  <li>Renames any duplicate objects to avoid conflicts.</li>
+                  <li>
+                    Uses materials from your current scene, ensuring consistency
+                    and avoiding material conflicts.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="batch-psd-to-hon">
+        <h2>17. Batch PSD to HON (Photoshop script)</h2>
+        <div class="script-content">
+          <!-- <img src="images/Batch_PSD_to_HON.jpg" alt="Batch PSD to HON" /> -->
+          <div class="description">
+            <h3>How It Works:</h3>
+            <ul>
+              <li>
+                <strong>Folder Selection:</strong>
+                <ul>
+                  <li>
+                    The user selects a folder containing the PSD files to
+                    process.
+                  </li>
+                  <li>
+                    If a folder is chosen, a new subfolder named "PSD converted"
+                    is created within it to store the processed files.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>File Processing:</strong>
+                <ul>
+                  <li>
+                    The script goes through each PSD file in the selected
+                    folder.
+                  </li>
+                  <li>For each PSD file:</li>
+                  <ul>
+                    <li>
+                      <strong>Open the File:</strong> The PSD file is opened in
+                      Photoshop.
+                    </li>
+                    <li>
+                      <strong>Process Layers and Layer Sets:</strong>
+                      <ul>
+                        <li>
+                          <strong>Alpha Layer Set:</strong> Removes all layers
+                          except those containing "multiMatte" in their name.
+                        </li>
+                        <li>
+                          <strong>Selection Layer Set:</strong> Moves a layer
+                          named "multiMatte" to the "wirecolor" layer set (if it
+                          exists).
+                        </li>
+                        <li>
+                          <strong>Removal of Layer Sets:</strong> Removes any
+                          layer sets named "selection" or "swatch".
+                        </li>
+                        <li>
+                          <strong>Merge Layers in Specific Sets:</strong> Merges
+                          layers within certain sets into single layers.
+                        </li>
+                        <li>
+                          <strong>Turn Off Visibility:</strong> Makes certain
+                          layers invisible.
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <strong>Save and Close the File:</strong>
+                      <ul>
+                        <li>
+                          The processed file is saved to the "PSD converted"
+                          subfolder with the same name as the original file.
+                        </li>
+                        <li>
+                          The file is then closed without saving any further
+                          changes.
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <hr />
+      <h1>Media Lab scripts</h1>
+
+      <section id="smart-renamer">
+        <h2>01. Smart Renamer</h2>
+        <div class="script-content">
+          <img src="images/Smart_renamer.JPG" alt="Smart Renamer" />
+          <div class="description">
+            <h3>Key Features:</h3>
+            <ul>
+              <li>
+                <strong>Custom Naming:</strong>
+                <ul>
+                  <li>You can enter a custom name for selected objects.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Automatic Layer and Color Assignment:</strong>
+                <ul>
+                  <li>
+                    When you rename objects, the tool can automatically assign
+                    them to new layers and give them random wireframe colors for
+                    easy identification.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Presets for Common Elements:</strong>
+                <ul>
+                  <li>
+                    There are buttons for quickly renaming objects to common
+                    architectural elements like walls, floors, windows, etc.
+                    Each button:
+                  </li>
+                  <ul>
+                    <li>
+                      Assigns a specific name prefix (e.g., "Wall_stucco_").
+                    </li>
+                    <li>Changes the wireframe color to a predefined value.</li>
+                    <li>
+                      Optionally adds a UVW map modifier and assigns a specific
+                      material.
+                    </li>
+                  </ul>
+                </ul>
+              </li>
+              <li>
+                <strong>Material and UVW Map Management:</strong>
+                <ul>
+                  <li>
+                    The tool can automatically apply materials from a predefined
+                    library.
+                  </li>
+                  <li>
+                    It can add UVW map modifiers to objects to ensure textures
+                    are mapped correctly.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Utility Functions:</strong>
+                <ul>
+                  <li>
+                    You can remove materials and UVW maps from selected objects
+                    with one click.
+                  </li>
+                  <li>
+                    There's a function to delete empty layers in your scene to
+                    keep things tidy.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="bitmap-renamer">
+        <h2>02. Bitmap Renamer</h2>
+        <div class="script-content">
+          <img src="images/Bitmap renamer.JPG" alt="Bitmap Renamer" />
+          <div class="description">
+            <h3>What the Script Does:</h3>
+            <ol>
+              <li>
+                <strong>Choose a Folder:</strong>
+                <ul>
+                  <li>
+                    You can select a folder containing the files you want to
+                    rename.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Display Files:</strong>
+                <ul>
+                  <li>It shows a list of all files in the chosen folder.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Rename Options:</strong>
+                <ul>
+                  <li>Base Name: Set a new base name for selected files.</li>
+                  <li>Numbering: Add sequential numbers to file names.</li>
+                  <li>Prefix: Add text at the beginning of file names.</li>
+                  <li>Suffix: Add text at the end of file names.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Replace Text:</strong>
+                <ul>
+                  <li>
+                    You can find specific text in file names and replace it with
+                    something else.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Collect Files:</strong>
+                <ul>
+                  <li>
+                    Gather files from a specified folder and copy them to the
+                    chosen folder.
+                  </li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="object-material-renamer">
+        <h2>03. Object and Material Renamer</h2>
+        <div class="script-content">
+          <img
+            src="images/Object and material renamer.JPG"
+            alt="Object and Material Renamer"
+          />
+          <div class="description">
+            <h3>What the Script Does:</h3>
+            <ol>
+              <li>
+                <strong>Choose Things to Rename:</strong>
+                <ul>
+                  <li>
+                    You can select either "Scene Objects" or "Scene Materials"
+                    to rename.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Display List:</strong>
+                <ul>
+                  <li>
+                    It shows a list of scene objects or materials based on your
+                    selection.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Rename Options:</strong>
+                <ul>
+                  <li>
+                    Base Name: Set a new base name for selected objects or
+                    materials.
+                  </li>
+                  <li>
+                    Numbering: Add sequential numbers to object or material
+                    names.
+                  </li>
+                  <li>
+                    Prefix: Add text at the beginning of object or material
+                    names.
+                  </li>
+                  <li>
+                    Suffix: Add text at the end of object or material names.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Replace Text:</strong>
+                <ul>
+                  <li>
+                    You can find specific text in names and replace it with
+                    something else.
+                  </li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="studio-helper">
+        <h2>04. Studio Helper Tools</h2>
+        <div class="script-content">
+          <img
+            src="images/Studio_helper.JPG"
+            alt="Object and Material Renamer"
+          />
+          <div class="description">
+            <ol>
+              <li>
+                <strong>Objects and Material Renamer:</strong> Renames objects
+                and materials in the scene.
+              </li>
+              <li>
+                <strong>Drive Files Renamer:</strong> Renames files related to
+                the project.
+              </li>
+              <li>
+                <strong>Scene Manager:</strong> Opens the Scene Manager tool.
+              </li>
+              <li>
+                <strong>Scene Check:</strong>
+                <ul>
+                  <li>
+                    Group Pivot: Sets the pivot point of selected groups to the
+                    bottom.
+                  </li>
+                  <li>
+                    Material Slot Cleaner: Clears all materials from the
+                    Material Editor.
+                  </li>
+                  <li>
+                    UV 0-1 Checker: Checks if all objects have UV coordinates in
+                    the 0-1 space.
+                  </li>
+                  <li>
+                    Bitmap Checker: Verifies if all scene bitmaps are 4K
+                    resolution and in PNG format.
+                  </li>
+                  <li>Poly Count: Toggles the display of polygon counts.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>LP Mat:</strong>
+                <ul>
+                  <li>LP Mat Tool: Maps low-poly models with textures.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vikrell-keyframer">
+        <h2>05. Vikrell Keyframer</h2>
+        <div class="script-content, script-content-column">
+          <img
+            class="big-hr-image"
+            src="images/Vikrell-keyframer.JPG"
+            alt="Object and Material Renamer"
+          />
+          <div class="description">
+            <p>Here's a summary of what it does in simpler terms:</p>
+            <ol>
+              <li>
+                <strong>User Interface:</strong> The script creates a window
+                (UI) where you can see various checkboxes and buttons organized
+                neatly.
+              </li>
+              <li>
+                <strong>Object Visibility:</strong> It helps control the
+                visibility of different objects in a 3D scene across multiple
+                frames of animation.
+              </li>
+              <li>
+                <strong>Checkbox Controls:</strong> Each checkbox corresponds to
+                a frame of animation (e.g., Frame 1, Frame 2, etc.), and each
+                column of checkboxes corresponds to a specific object or group
+                of objects in the scene (e.g., Tub, Shower Base, Grab Bars,
+                etc.).
+              </li>
+              <li>
+                <strong>Adding Keys:</strong> By checking or unchecking the
+                checkboxes and pressing the "Add keys" button, you can create
+                animation keys that control whether each object is visible or
+                not at different frames.
+              </li>
+              <li>
+                <strong>Other Features:</strong>
+                <ul>
+                  <li>
+                    Buttons like "Shower model" and "Tub model" toggle the
+                    visibility of specific objects instantly.
+                  </li>
+                  <li>
+                    "Exclude" button excludes certain types of objects from
+                    affecting lighting in the scene.
+                  </li>
+                  <li>
+                    "Visible" and "Invisible" buttons quickly add visibility
+                    keys for currently selected objects.
+                  </li>
+                  <li>
+                    "Delete All keys" button removes all visibility keys from
+                    the scene.
+                  </li>
+                  <li>Checkboxes to hide or show lights in the scene.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vikrell-renamer">
+        <h2>06. Vikrell Renamer</h2>
+        <div class="script-content">
+          <img
+            src="images/Vikrell renamer.JPG"
+            alt="Object and Material Renamer"
+          />
+          <div class="description">
+            <p>
+              It's a tool for managing and organizing different parts of a
+              digital design project, specifically related to Vikrell products.
+            </p>
+            <ul>
+              <li>
+                <strong>Interface:</strong> Opens a small window with buttons
+                for components like walls, tubs, shower bases, etc.
+              </li>
+              <li>
+                <strong>Renaming:</strong> Clicking a button renames selected
+                objects in the scene to start with a specific prefix followed by
+                a unique identifier (e.g., "Tub_").
+              </li>
+              <li>
+                <strong>Material Assignment:</strong> Assigns materials to
+                objects; for example, selecting "Tub" applies a material called
+                "Studio 10b-White Tub" to tub objects.
+              </li>
+              <li>
+                <strong>Additional Features:</strong> Some buttons perform extra
+                actions, like "Backer board," which not only renames and assigns
+                materials but also adds a mapping modifier to selected objects.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="smart-renamer-tempa">
+        <h2>07. Smart Renamer Tempa</h2>
+        <div class="script-content, script-content-column">
+          <img
+            src="images/Smart_renamer_tempa.JPG"
+            alt="Object and Material Renamer"
+          />
+          <div class="description">
+            <h3>Script features</h3>
+            <p>
+              This script gives user ability to quickly organize, material and
+              UV map to selected objects.
+            </p>
+            <ul>
+              <li>
+                Adds selected objects to predefined layer. Rename them to
+                standard format according to layer.
+              </li>
+              <li>Adds spefic material and predefined UVW to them.</li>
+            </ul>
+            <h3>IMP links section</h3>
+            <ul>
+              <li>
+                Several buttons under the groups "IMP_links," they are quick
+                links to other useful scripts.
+              </li>
+
+              <li>
+                Buttons "Std_Docks" launch file explorer pointed to a specific
+                directory. Which contain standard docks for reference.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="viewport-material-change">
+        <h2>08. Viewport Material Change</h2>
+        <div class="script-content">
+          <div class="description">
+            <h3>Description:</h3>
+            <p>
+              This script creates a button labeled "Color change". When clicked,
+              it toggles the display color mode between showing the color of
+              objects in wireframe and showing the of object materials in
+              viewport. Useful in product modelling.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="bridge-poly-script">
+        <h2>09. Bridge Poly Script</h2>
+        <div class="script-content">
+          <div class="description">
+            <h3>Description:</h3>
+            <p>
+              This script enables a hotkey for the Bridge Poly operation in 3ds
+              Max. Previously, this functionality was unavailable, but now it's
+              accessible by default.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="align-pivot-to-bottom">
+        <h2>10. Align Pivot to Bottom</h2>
+        <div class="script-content">
+          <div class="description">
+            <h3>Description:</h3>
+            <p>
+              This script aligns the pivot of selected objects to the minimum z
+              distance of objects. It also position pivot at the center of the
+              object.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="viewport-auto-switch">
+        <h2>11. Viewport Auto Switch to 2D and 3D</h2>
+        <div class="script-content">
+          <div class="description">
+            <h3>Description:</h3>
+            <p>
+              This script adjusts snapping behavior in the design software based
+              on the viewing mode. It automatically switches between full 3D
+              snapping and 2.5D snapping depending on the view, ensuring
+              effective snapping functionality tailored to the design context.
+              Very effective tool in architectural modelling.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="vray-physical-cam-restore">
+        <h2>12. Vray Physical Cam Restore</h2>
+        <div class="script-content">
+          <div class="description">
+            <h3>Description:</h3>
+            <p>
+              This script restores the old physical camera functionality that
+              was present in Vray before 2018. It reverts to the previous
+              version of the Vray physical camera, allowing users to access and
+              utilize the features and settings that were available prior to the
+              2018 update.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="random-material-apply">
+        <h2>13. Random Material Apply</h2>
+        <div class="script-content">
+          <div class="description">
+            <h3>Description:</h3>
+            <p>
+              This script enables the random application of materials from the
+              material editor window to selected objects in the scene. It
+              automates the process of assigning materials to objects by
+              selecting them randomly from the available materials in the
+              material editor.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="animation-keys-remover">
+        <h2>14. Animation Keys Remover</h2>
+        <div class="script-content">
+          <div class="description">
+            <h3>Description:</h3>
+            <p>
+              This script is designed to remove all animation keys associated
+              with selected objects in the scene. It provides a convenient way
+              to clear animation data from objects, allowing users to start
+              fresh or make adjustments without the constraints of existing
+              keyframes.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Sharad Kumbhar</p>
+    </footer>
+  </body>
+</html>
